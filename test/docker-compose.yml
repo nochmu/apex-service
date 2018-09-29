@@ -1,0 +1,19 @@
+version: '3'
+services:
+  oradb: 
+    image: oradb-instance:12c-1  # 1. set your own database image for testing
+    ports: 
+      - 1521
+  apex:
+    #image: apex-service:18.2
+    build:
+      context: ../
+    ports: 
+      - 8080
+    environment: # 2. adjust the following values: 
+      DB_HOSTNAME: oradb
+      DB_PORT: 1521
+      DB_SERVICE: PDB
+      SYS_USER: SYS
+      SYS_PASSWORD: Oracle12c
+      ORDS_PW: apex

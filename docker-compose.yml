@@ -1,0 +1,33 @@
+# docker-compose.yml for an APEX service with Database service
+version: '3'
+services:
+
+  # Oracle Database
+  oradb: 
+    image: oracle/database:12.2.0.1-ee
+    ports: 
+      - 1621:1521
+    volumes: 
+      - oradb_data:/opt/oracle/oradata
+    environment:
+      ORACLE_SID: CDB
+      ORACLE_PDB: PDB
+      ORACLE_PWD: Oracle12c
+    restart: always
+  
+  # APEX Service
+  apex:
+    image: apex-service:18.2
+    ports: 
+      - 8080:8080
+    environment:  
+      DB_HOSTNAME: oradb
+      DB_PORT: 1521
+      DB_SERVICE: PDB
+      SYS_USER: SYS
+      SYS_PASSWORD: Oracle12c
+      ORDS_PW: apex
+    restart: always
+
+volumes: 
+  oradb_data:
