@@ -1,14 +1,14 @@
 # APEX Service
 
-Docker Image to set up Oracle APEX in a very comfortable way.  
+Docker Image to set up [Oracle APEX](https://apex.oracle.com/en/) in a very comfortable way.  
 Note: A seperate database is needed. 
 
 This image contains: 
 
-- an Installer for Oracle APEX 18.2
-- auto-installing Oracle REST Data Services (ORDS) 18.2
-- installed SQLcl 18.2
-- installed Apache Tomcat 8.5
+- an Installer for [Oracle APEX](https://apex.oracle.com/en/) 18.2
+- auto-installing [Oracle REST Data Services (ORDS)](https://www.oracle.com/database/technologies/appdev/rest.html) 18.2
+- installed [SQLcl](https://www.oracle.com/technetwork/developer-tools/sqlcl/overview/index.html) 18.2
+- installed [Apache Tomcat](http://tomcat.apache.org/) 8.5
 
 # Using
 
