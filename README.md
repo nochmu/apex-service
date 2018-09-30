@@ -28,7 +28,7 @@ $ docker inspect apex-service:18.2
 see: [oracle/docker-images](https://github.com/oracle/docker-images/tree/master/OracleDatabase/SingleInstance)
 
 ## 4. Write a docker-compose file
-More about docker-compose:  [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)  
+More about docker-compose:  [https://docs.docker.com/compose/overview/](https://docs.docker.com/compose/overview/)  
 
 ```
 # docker-compose.yml
