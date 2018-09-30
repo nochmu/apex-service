@@ -19,6 +19,8 @@ define APEX_PUBLIC_USER_PW = '&5'
 PROMPT  Install APEX
 @apexins &TBLS_APEX &TBLS_FILES &TBLS_TEMP &IMG_DIR
 
+set define on
+
 PROMPT  Unlock the APEX_PUBLIC_USER account
 alter user apex_public_user identified by &APEX_PUBLIC_USER_PW account unlock;
 
