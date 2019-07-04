@@ -2,28 +2,28 @@
 #####################################################
 # I) Multistage image to prepare the download files #
 #####################################################
-FROM tomcat:8.5-jre8 as downloads
+FROM tomcat:8.5-jdk11 as downloads
 
 # downloads/sqlcl-XXX.zip
-ARG SQLCL_ZIP=sqlcl-18.2.0.zip
+ARG SQLCL_ZIP=sqlcl-19.1.0.094.1619.zip
 ADD downloads/${SQLCL_ZIP} /opt/
 RUN cd /opt && unzip ${SQLCL_ZIP}
 
 # downloads/ords-XXX.zip
-ARG ORDS_ZIP=ords-18.2.0.zip
+ARG ORDS_ZIP=ords-19.1.0.092.1545.zip
 ADD downloads/${ORDS_ZIP} /opt/
 RUN cd /opt && unzip ${ORDS_ZIP} -d ords && cd ords  && rm -rf  docs examples index.html
 
 
 # downloads/apex_XXX.zip
-ARG APEX_ZIP=apex_18.2.zip
+ARG APEX_ZIP=apex_19.1.zip
 ADD downloads/${APEX_ZIP} /opt/
 RUN cd /opt && unzip ${APEX_ZIP}
 
 ######################
 # II) The real image #
 ######################
-FROM tomcat:8.5-jre8 
+FROM tomcat:8.5-jdk11
 
 LABEL description="Infrastructure for Oracle APEX" \
       maintainer="git@nochmu.de" 
@@ -48,7 +48,7 @@ RUN apt-get update \
 #########################
 # 4. Install SQL Developer Command Line (SQLcl)
 ARG SQLCL_HOME=/opt/oracle/sqlcl
-ARG SQLCL_VERSION=18.2.0
+ARG SQLCL_VERSION=19.1.0
 LABEL sqlcl.version="${SQLCL_VERSION}"
 ENV SQLCL_VERSION=${SQLCL_VERSION} \
       SQLCL_HOME=${SQLCL_HOME}
@@ -59,7 +59,7 @@ RUN ln -s ${SQLCL_HOME}/bin/sql /usr/local/bin/
 #############################################
 # 5. Install Oracle REST Data Services (ORDS)
 ARG ORDS_HOME=/opt/oracle/ords
-ARG ORDS_VERSION=18.2.0
+ARG ORDS_VERSION=19.1.0
 LABEL ords.version="${ORDS_VERSION}"
 
 ENV ORDS_VERSION=${ORDS_VERSION} \
@@ -90,7 +90,7 @@ RUN ln -s ${ORDS_HOME}/ords.war ${CATALINA_HOME}/webapps/ords.war
 ################
 # 6. Install APEX
 ARG APEX_HOME=/opt/oracle/apex
-ARG APEX_VERSION=18.2.0
+ARG APEX_VERSION=19.1.0
 LABEL apex.version="${APEX_VERSION}"
 
 ENV APEX_VERSION=${APEX_VERSION} \
