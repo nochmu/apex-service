@@ -1,4 +1,4 @@
-IMAGE_NAME = apex-service:18.2
+IMAGE_NAME = apex-service:19.1
 
 
 .PHONY: test image enter
