@@ -25,7 +25,7 @@ PROMPT  Unlock the APEX_PUBLIC_USER account
 alter user apex_public_user identified by &APEX_PUBLIC_USER_PW account unlock;
 
 PROMPT  Configure APEX REST
-@apex_rest_config_core.sql &APEX_PUBLIC_USER_PW &APEX_PUBLIC_USER_PW
+@apex_rest_config_core.sql ./ &APEX_PUBLIC_USER_PW &APEX_PUBLIC_USER_PW
 
 commit; 
 
