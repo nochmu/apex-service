@@ -1,6 +1,11 @@
 # APEX Service
 
-Docker Image to set up [Oracle APEX](https://apex.oracle.com/en/) in a very comfortable way.  
+## About the APEX service
+
+The APEX Service should make it very easy to set up and use APEX.
+
+
+At the moment this is an Docker Image to set up [Oracle APEX](https://apex.oracle.com/en/) in a very comfortable way.  
 Note: A seperate database is needed. 
 
 This image contains: 
