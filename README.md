@@ -1,8 +1,9 @@
 # APEX Service
 
-## About the APEX service
+## About
 
 The APEX Service should make it very easy to set up and use APEX.
+See also: [About APEX Service](https://github.com/nochmu/apex-service/wiki)
 
 
 At the moment this is an Docker Image to set up [Oracle APEX](https://apex.oracle.com/en/) in a very comfortable way.  
